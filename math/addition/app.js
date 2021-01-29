@@ -1,5 +1,5 @@
 if (!localStorage.getItem('coins')) {
-    localStorage.setItem('coins', 1);
+    localStorage.setItem('coins', 0);
 }
 
 let firstNumber = Math.floor(Math.random()*1000);
