@@ -3,7 +3,9 @@ if (!localStorage.getItem('coins')) {
 }
 
 let firstNumber = Math.floor(Math.random()*1000);
+let firstNumStr = firstNumber.toString();
 let secondNumber = Math.floor(Math.random()*1000);
+let secondNumStr = secondNumber.toString();
 let problem = firstNumber - secondNumber;
 const topNumber = document.getElementById("tNumber");
 const topNumberContainer = document.querySelector('.topNumber');
@@ -18,6 +20,7 @@ const checkAnswer = document.getElementById("checkAnswer");
 const coins = document.querySelector('.coins');
 var num_coins = localStorage.getItem('coins');
 
+console.log(firstNumStr + secondNumStr);
 
 coins.innerHTML = `Coins: ` + localStorage.getItem('coins');
 
