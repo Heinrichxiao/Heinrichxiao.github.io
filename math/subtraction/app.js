@@ -46,7 +46,7 @@ total_html.innerHTML = `Total: ${total}`;
 
 // Adding an event listener for the next question button
 button.addEventListener('click', function(){
-    coins.innerHTML = `Coins: ` + localStorage.getItem('coins');
+    coins.innerHTML = `Score: ` + localStorage.getItem('coins');
     console.log("clicked");
     checkFormat();
 
