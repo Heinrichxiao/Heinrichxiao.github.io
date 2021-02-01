@@ -1,3 +1,7 @@
+if (!localStorage.getItem('total')) {
+    localStorage.setItem('total', 0);
+}
+
 if (!localStorage.getItem('coins')) {
     localStorage.setItem('coins', 0);
 }
