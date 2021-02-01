@@ -15,7 +15,7 @@ let problem = firstNumber - secondNumber;
 var total = localStorage.getItem('total');
 var num_coins = localStorage.getItem('coins');
 var next = true;
-var accuracy = total 
+var practiceMode = false;
 const topNumber = document.getElementById("tNumber");
 const topNumberContainer = document.querySelector('.topNumber');
 const bottomNumber = document.getElementById("bNumber");
@@ -41,25 +41,24 @@ coins.innerHTML = `Score: ` + localStorage.getItem('coins');
 // Hiding the next question button
 button.style.visibility = 'hidden';
 
-// Printing the total number of question the user did
+// Printing the total number of question the user finished
 total_html.innerHTML = `Total: ${total}`;
 
 // Adding an event listener for the next question button
 button.addEventListener('click', function(){
-    coins.innerHTML = `Coins: ` + localStorage.getItem('coins');
+    coins.innerHTML = `Score: ` + localStorage.getItem('coins');
     console.log("clicked");
     checkFormat();
 
     button.style.visibility = 'hidden';
     play();
 });
-
 // For debugging the regrouping
 console.log(fNS[fNS.length - 1]);
 console.log(sNS[sNS.length - 1]);
 console.log(fNS.length);
 
-// Finding if there are regrouping and looking for negative numbers
+// Finding if there are regrouping and negative numbers
 while (firstNumber - secondNumber < 0 ||
     fNS[fNS.length - 1] < sNS[sNS.length - 1] ||
     fNS[fNS.length - 2] < sNS[sNS.length - 2] || 
@@ -80,7 +79,9 @@ checkAnswer.addEventListener('click', function() {
     total_html.innerHTML = `Total: ${total}`;
 });
 
+// Seeing if the person checked the answer
 checkAnswer.addEventListener('click', function(){
+    // Checking if the answer is correct
     if(answerInput.value == problem){
         
         playerAnswer.classList.add('hidden');
@@ -94,20 +95,20 @@ checkAnswer.addEventListener('click', function(){
         output.innerHTML = `<h1 id="badanswer">${problem}</h1>`;
     }
     
+    // Printing everything
     total++;
     localStorage.setItem('coins', num_coins);
     localStorage.setItem('total', total);
     total_html.innerHTML = `Total: ${total}`;
     coins.innerHTML = `Score: ` + localStorage.getItem('coins');
     button.style.visibility = 'visible';
-    // Printing the accuracy
     accuracy_html.innerHTML = `Acccuracy: ${Math.round(num_coins / total * 100)}%`;
     
     clearAnswerInputField();
 
 })
 
-// Doing this when playing the game
+// Does this when playing the game
 function play(){  
     total_html.innerHTML = `Total: ${total}`;  
     firstNumber = Math.floor(Math.random()*1000);

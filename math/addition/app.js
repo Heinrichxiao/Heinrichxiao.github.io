@@ -2,9 +2,15 @@ if (!localStorage.getItem('coins')) {
     localStorage.setItem('coins', 0);
 }
 
+// Making the variables
 let firstNumber = Math.floor(Math.random()*1000);
-let secondNumber = Math.floor(Math.random()*1000);
-let problem = firstNumber + secondNumber
+var fNS = firstNumber.toString();
+let secondNumber = Math.floor(Math.random()*firstNumber);
+var sNS = secondNumber.toString();
+let problem = firstNumber + secondNumber;
+var total = localStorage.getItem('total');
+var num_coins = localStorage.getItem('coins');
+var next = true;
 const topNumber = document.getElementById("tNumber");
 const topNumberContainer = document.querySelector('.topNumber');
 const bottomNumber = document.getElementById("bNumber");
@@ -16,30 +22,39 @@ const button = document.querySelector('.button');
 const answerInput = document.getElementById("answerInput");
 const checkAnswer = document.getElementById("checkAnswer");
 const coins = document.querySelector('.coins');
-var num_coins = localStorage.getItem('coins');
+const total_html = document.getElementById('total');
+const accuracy_html = document.getElementById('accuracy');
 
+if (total > 0) {
+    // Printing the accuracy
+    accuracy_html.innerHTML = `Acccuracy: ${Math.round(num_coins / total * 100)}%`;
+}
 
 coins.innerHTML = `Coins: ` + localStorage.getItem('coins');
 
+// Hiding the next question button
+button.style.visibility = 'hidden';
+
+// Adding an event listener for the next question button
 button.addEventListener('click', function(){
-    coins.innerHTML = `Coins: ` + localStorage.getItem('coins');
+    coins.innerHTML = `Score: ` + localStorage.getItem('coins');
     console.log("clicked");
     checkFormat();
-    
-    firstNumber = Math.floor(Math.random()*1000);
-    secondNumber = Math.floor(Math.random()*1000);
-    problem = firstNumber + secondNumber;
-    playerAnswer.classList.remove('hidden');
+
+    button.style.visibility = 'hidden';
     play();
 });
-
-while (firstNumber + secondNumber > 999) {
+while (firstNumber + secondNumber > 999 || 
+    fNS.length != 3 ||
+    sNS.length != 3) {
     firstNumber = Math.floor(Math.random()*1000);
     secondNumber = Math.floor(Math.random()*1000);
     problem = firstNumber + secondNumber
 }
 
+// Seeing if the person checked the answer
 checkAnswer.addEventListener('click', function(){
+    // Checking if the answer is correct
     if(answerInput.value == problem){
         
         playerAnswer.classList.add('hidden');
@@ -53,14 +68,28 @@ checkAnswer.addEventListener('click', function(){
         output.innerHTML = `<h1 id="badanswer">${problem}</h1>`;
     }
     
+    // Printing everything
+    total++;
     localStorage.setItem('coins', num_coins);
-    coins.innerHTML = `Coins: ` + localStorage.getItem('coins');
+    localStorage.setItem('total', total);
+    total_html.innerHTML = `Total: ${total}`;
+    coins.innerHTML = `Score: ` + localStorage.getItem('coins');
+    button.style.visibility = 'visible';
+    accuracy_html.innerHTML = `Acccuracy: ${Math.round(num_coins / total * 100)}%`;
     
     clearAnswerInputField();
 
 })
 
+
 function play(){
+    total_html.innerHTML = `Total: ${total}`;  
+    firstNumber = Math.floor(Math.random()*1000);
+    fNS = firstNumber.toString();
+    secondNumber = Math.floor(Math.random()*firstNumber);
+    sNS = secondNumber.toString();
+    problem = firstNumber + secondNumber;
+    playerAnswer.classList.remove('hidden');
     while (firstNumber + secondNumber > 999) {
         firstNumber = Math.floor(Math.random()*1000);
         secondNumber = Math.floor(Math.random()*1000);
