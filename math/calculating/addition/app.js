@@ -1,3 +1,4 @@
+<<<<<<< HEAD:math/calculating/addition/app.js
 if (!localStorage.getItem('coins')) {
     localStorage.setItem('coins', 0);
 }
