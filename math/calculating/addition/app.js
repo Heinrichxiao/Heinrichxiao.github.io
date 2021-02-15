@@ -59,13 +59,15 @@ checkAnswer.addEventListener('click', function(){
         
         playerAnswer.classList.add('hidden');
         output.classList.remove('hidden');
-        output.innerHTML = `<h1 id="goodAnswer">${problem}</h1>`;
+        output.innerHTML = `<h1 id="goodAnswer">${problem}</h1>
+        <img width="100" src="answer-correct.svg" style="margin: none;">`;
         num_coins++;
         
     }else{
         playerAnswer.classList.add('hidden');
         output.classList.remove('hidden');
-        output.innerHTML = `<h1 id="badanswer">${problem}</h1>`;
+        output.innerHTML = `<h1 id="badanswer">${problem}</h1>
+        <img width="100" src="answer-incorrect.svg" style="margin: none;">`;
     }
     
     // Printing everything
