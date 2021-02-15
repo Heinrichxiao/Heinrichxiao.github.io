@@ -1,4 +1,3 @@
-<<<<<<< HEAD:math/calculating/subtraction/app.js
 // Finding the localstorage
 if (!localStorage.getItem('coins')) {
     localStorage.setItem('coins', 0);
