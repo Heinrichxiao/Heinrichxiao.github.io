@@ -48,7 +48,9 @@ while (firstNumber + secondNumber > 999 ||
     fNS.length != 3 ||
     sNS.length != 3) {
     firstNumber = Math.floor(Math.random()*1000);
-    secondNumber = Math.floor(Math.random()*1000);
+    fNS = firstNumber.toString();
+    secondNumber = Math.floor(Math.random()*firstNumber);
+    sNS = secondNumber.toString();
     problem = firstNumber + secondNumber
 }
 
@@ -94,7 +96,9 @@ function play(){
     playerAnswer.classList.remove('hidden');
     while (firstNumber + secondNumber > 999) {
         firstNumber = Math.floor(Math.random()*1000);
-        secondNumber = Math.floor(Math.random()*1000);
+        fNS = firstNumber.toString();
+        secondNumber = Math.floor(Math.random()*firstNumber);
+        sNS = secondNumber.toString();
         problem = firstNumber + secondNumber
     }
     output.classList.add('hidden');
