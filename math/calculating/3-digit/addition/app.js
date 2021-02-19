@@ -99,7 +99,7 @@ function play(){
         fNS = firstNumber.toString();
         secondNumber = Math.floor(Math.random()*firstNumber);
         sNS = secondNumber.toString();
-        problem = firstNumber + secondNumber
+        problem = firstNumber + secondNumber;
     }
     output.classList.add('hidden');
     checkFormat()
