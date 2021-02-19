@@ -48,7 +48,9 @@ while (firstNumber + secondNumber > 99 ||
     fNS.length != 2 ||
     sNS.length != 2) {
     firstNumber = Math.floor(Math.random()*100);
-    secondNumber = Math.floor(Math.random()*100);
+    fNS = firstNumber.toString();
+    secondNumber = Math.floor(Math.random()*firstNumber);
+    sNS = secondNumber.toString();
     problem = firstNumber + secondNumber;
 }
 
@@ -96,7 +98,9 @@ function play(){
         fNS.length != 2 ||
         sNS.length != 2) {
         firstNumber = Math.floor(Math.random()*100);
-        secondNumber = Math.floor(Math.random()*100);
+        fNS = firstNumber.toString();
+        secondNumber = Math.floor(Math.random()*firstNumber);
+        sNS = secondNumber.toString();
         problem = firstNumber + secondNumber;
     }
     output.classList.add('hidden');
