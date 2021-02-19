@@ -54,10 +54,10 @@ button.addEventListener('click', function(){
     button.style.visibility = 'hidden';
     play();
 });
-// For debugging the regrouping
-console.log(fNS[fNS.length - 1]);
-console.log(sNS[sNS.length - 1]);
-console.log(fNS.length);
+// // For debugging the regrouping
+// console.log(fNS[fNS.length - 1]);
+// console.log(sNS[sNS.length - 1]);
+// console.log(fNS.length);
 
 // Finding if there are regrouping and negative numbers
 while (firstNumber - secondNumber < 0 ||
@@ -67,7 +67,7 @@ while (firstNumber - secondNumber < 0 ||
    fNS = firstNumber.toString();
    sNS = secondNumber.toString();
    firstNumber = Math.floor(Math.random()*100);
-   secondNumber = Math.floor(Math.random()*100);
+   secondNumber = Math.floor(Math.random()*firstNumber);
    fNS = firstNumber.toString();
    sNS = secondNumber.toString();
    problem = firstNumber - secondNumber;
@@ -115,19 +115,18 @@ function play(){
     total_html.innerHTML = `Total: ${total}`;  
     firstNumber = Math.floor(Math.random()*100);
     fNS = firstNumber.toString();
-    secondNumber = Math.floor(Math.random()*100);
+    secondNumber = Math.floor(Math.random()*firstNumber);
     sNS = secondNumber.toString();
     problem = firstNumber - secondNumber;
     playerAnswer.classList.remove('hidden');
     while (firstNumber - secondNumber < 0 ||
         fNS[fNS.length - 1] < sNS[sNS.length - 1] ||
-        fNS[fNS.length - 2] < sNS[sNS.length - 2] || 
-        fNS.length != 3 ||
-        sNS.length != 3) {
+        fNS.length != 2 ||
+        sNS.length != 2) {
        fNS = firstNumber.toString();
        sNS = secondNumber.toString();
        firstNumber = Math.floor(Math.random()*100);
-       secondNumber = Math.floor(Math.random()*100);
+       secondNumber = Math.floor(Math.random()*firstNumber);
        fNS = firstNumber.toString();
        sNS = secondNumber.toString();
        problem = firstNumber - secondNumber;

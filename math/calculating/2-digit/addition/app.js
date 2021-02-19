@@ -45,8 +45,8 @@ button.addEventListener('click', function(){
     play();
 });
 while (firstNumber + secondNumber > 99 || 
-    fNS.length != 3 ||
-    sNS.length != 3) {
+    fNS.length != 2 ||
+    sNS.length != 2) {
     firstNumber = Math.floor(Math.random()*100);
     secondNumber = Math.floor(Math.random()*100);
     problem = firstNumber + secondNumber
@@ -92,7 +92,9 @@ function play(){
     sNS = secondNumber.toString();
     problem = firstNumber + secondNumber;
     playerAnswer.classList.remove('hidden');
-    while (firstNumber + secondNumber > 99) {
+    while (firstNumber + secondNumber > 99 || 
+        fNS.length != 2 ||
+        sNS.length != 2) {
         firstNumber = Math.floor(Math.random()*100);
         secondNumber = Math.floor(Math.random()*100);
         problem = firstNumber + secondNumber

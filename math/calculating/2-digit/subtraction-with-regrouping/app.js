@@ -61,8 +61,8 @@ console.log(fNS.length);
 
 // Finding if there are regrouping and looking for negative numbers
 while (firstNumber - secondNumber < 0 ||
-    fNS.length != 3 ||
-    sNS.length != 3) {
+    fNS.length != 2 ||
+    sNS.length != 2) {
    fNS = firstNumber.toString();
    sNS = secondNumber.toString();
    firstNumber = Math.floor(Math.random()*100);
@@ -117,8 +117,8 @@ function play(){
     problem = firstNumber - secondNumber;
     playerAnswer.classList.remove('hidden');
     while (firstNumber - secondNumber < 0 ||
-        fNS.length != 3 ||
-        sNS.length != 3) {
+        fNS.length != 2 ||
+        sNS.length != 2) {
        fNS = firstNumber.toString();
        sNS = secondNumber.toString();
        firstNumber = Math.floor(Math.random()*100);
