@@ -49,7 +49,7 @@ while (firstNumber + secondNumber > 99 ||
     sNS.length != 2) {
     firstNumber = Math.floor(Math.random()*100);
     secondNumber = Math.floor(Math.random()*100);
-    problem = firstNumber + secondNumber
+    problem = firstNumber + secondNumber;
 }
 
 // Seeing if the person checked the answer
@@ -97,7 +97,7 @@ function play(){
         sNS.length != 2) {
         firstNumber = Math.floor(Math.random()*100);
         secondNumber = Math.floor(Math.random()*100);
-        problem = firstNumber + secondNumber
+        problem = firstNumber + secondNumber;
     }
     output.classList.add('hidden');
     checkFormat()
