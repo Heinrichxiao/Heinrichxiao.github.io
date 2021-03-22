@@ -1,6 +1,9 @@
 if (!localStorage.getItem('coins')) {
     localStorage.setItem('coins', 0);
 }
+if (!localStorage.getItem('total')) {
+    localStorage.setItem('total', 0);
+}
 
 // Making the variables
 let firstNumber = Math.floor(Math.random()*1000);
